@@ -17,13 +17,13 @@ jobs:
           dotnet-version: 8.0.x
           
       - name: Restore dependencies
-        run: dotnet restore cray-dotnet/Cray/Cray.csproj
+        run: dotnet restore Cray/Cray.csproj
         
       - name: Build
-        run: dotnet build cray-dotnet/Cray/Cray.csproj --configuration Release --no-restore
+        run: dotnet build Cray/Cray.csproj --configuration Release --no-restore
         
       - name: Pack
-        run: dotnet pack cray-dotnet/Cray/Cray.csproj --configuration Release --no-build --output nupkgs
+        run: dotnet pack Cray/Cray.csproj --configuration Release --no-build --output nupkgs
         
       - name: Push to NuGet
         run: dotnet nuget push nupkgs/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
