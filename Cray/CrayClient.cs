@@ -84,7 +84,7 @@ namespace Cray
                 throw new AuthenticationException("Unauthorized access. Check your API token.");
             }
 
-            if (response.StatusCode == System.Net.HttpStatusCode.UnprocessableEntity || response.StatusCode == System.Net.HttpStatusCode.BadRequest)
+            if ((int)response.StatusCode == 422 || response.StatusCode == System.Net.HttpStatusCode.BadRequest)
             {
                 throw new ValidationException($"Validation error: {content}");
             }
