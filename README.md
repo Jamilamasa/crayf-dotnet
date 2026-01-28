@@ -7,7 +7,7 @@ A C# .NET Standard library for integrating with the Cray Finance API.
 (Assuming the package is published to NuGet)
 
 ```bash
-dotnet add package CrayFi
+dotnet add package CrayFi.Sdk
 ```
 
 ## Usage
