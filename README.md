@@ -169,7 +169,7 @@ var status = await client.Payouts.Verify("transaction-id");
 
 ```csharp
 // Initiate Refund
-var refund = await client.Refunds.Initiate(new 
+var refund = await client.Refunds.Initiate(new
 {
     pan = "4696...",
     subaccount_id = "...",
@@ -178,6 +178,38 @@ var refund = await client.Refunds.Initiate(new
 
 // Query Refund
 var refundStatus = await client.Refunds.Query("refund-ref");
+```
+
+#### Virtual Accounts
+
+```csharp
+// Create / approve a virtual account
+var va = await client.VirtualAccounts.Create(new
+{
+    provider = "monnify",
+    account_name = "John Doe",
+    bvn = "12345678901"
+});
+
+// Initiate a virtual account request (pre-create step)
+var initiated = await client.VirtualAccounts.Initiate(new
+{
+    provider = "wema",
+    bvn = "12345678901"
+});
+
+// List all virtual accounts for the merchant
+var list = await client.VirtualAccounts.List();
+
+// Get available virtual account providers
+var providers = await client.VirtualAccounts.Providers();
+
+// Submit OTP for Wema two-step flow
+var result = await client.VirtualAccounts.SubmitOtp(new
+{
+    otp = "123456",
+    request_id = "req_abc123"
+});
 ```
 
 ## Error Handling

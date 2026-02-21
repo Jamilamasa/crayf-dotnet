@@ -1,0 +1,8 @@
+is_global = true
+build_property.RootNamespace = Cray
+build_property.ProjectDir = /Users/jamilamasa/Documents/Work/Ramptech/test-sdk/crayf-dotnet/Cray/
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.CsWinRTUseWindowsUIXamlProjections = false
+build_property.EffectiveAnalysisLevelStyle = 
+build_property.EnableCodeStyleSeverity = 
