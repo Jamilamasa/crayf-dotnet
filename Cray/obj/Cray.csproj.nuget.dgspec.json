@@ -5,7 +5,7 @@
   },
   "projects": {
     "/Users/jamilamasa/Documents/Work/Ramptech/test-sdk/crayf-dotnet/Cray/Cray.csproj": {
-      "version": "1.0.3",
+      "version": "1.0.4",
       "restore": {
         "projectUniqueName": "/Users/jamilamasa/Documents/Work/Ramptech/test-sdk/crayf-dotnet/Cray/Cray.csproj",
         "projectName": "CrayFi.Sdk",

@@ -183,19 +183,26 @@ var refundStatus = await client.Refunds.Query("refund-ref");
 #### Virtual Accounts
 
 ```csharp
-// Create / approve a virtual account
+// Create a virtual account
 var va = await client.VirtualAccounts.Create(new
 {
-    provider = "monnify",
-    account_name = "John Doe",
-    bvn = "12345678901"
+    bvn = "22192474887",
+    type = "Corporate",              // "Corporate" or "Individual"
+    nin = "11111122221",
+    virtual_account_type = "Permanent", // "Permanent" or "Onetime"
+    account_name = "BOlaOla",
+    rc_number = "99988828822",      // Required for Corporate type
+    currency = "NGN",
+    reference = "cbf0d060-1544-4a53-a00b-7cb75a3eb59d",
+    customer_email = "hello@gmail.com",
+    provider = "monnify"
 });
 
 // Initiate a virtual account request (pre-create step)
 var initiated = await client.VirtualAccounts.Initiate(new
 {
     provider = "wema",
-    bvn = "12345678901"
+    bvn = "22192474887"
 });
 
 // List all virtual accounts for the merchant
@@ -204,11 +211,12 @@ var list = await client.VirtualAccounts.List();
 // Get available virtual account providers
 var providers = await client.VirtualAccounts.Providers();
 
-// Submit OTP for Wema two-step flow
+// Submit OTP to complete the two-step Wema flow
 var result = await client.VirtualAccounts.SubmitOtp(new
 {
-    otp = "123456",
-    request_id = "req_abc123"
+    merchant_id = "123",
+    otp = "768238",
+    customer_email = "hello@gmail.com"
 });
 ```
 
